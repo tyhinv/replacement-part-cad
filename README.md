@@ -1,5 +1,7 @@
 # replacement-part-cad
 
+[English below](#english) · Русский
+
 Скилл для Claude: воссоздать сломанную пластиковую деталь и напечатать её на FDM-принтере.
 
 **Сначала чертёж, потом 3D.** Claude разбирает фото, видео, скан iPhone и замеры штангенциркулем, рисует 2D-чертёж и согласует его с вами. Только после этого строит параметрическую модель в CadQuery.
@@ -30,7 +32,39 @@
 
 ## English
 
-A Claude skill for recreating broken plastic parts for FDM printing. The workflow goes from measurements and photos to an agreed 2D drawing, then a parametric CadQuery model (STEP/STL/3MF), printability checks, fit test pieces and a Bambu Studio multi-color project. The skill text is in Russian; Claude follows it fine and answers in your language.
+A Claude skill for recreating a broken plastic part and printing it on an FDM printer.
+
+**Drawing first, 3D second.** Claude works through your photos, videos, iPhone scans and caliper measurements, draws a 2D drawing and agrees it with you. Only then does it build a parametric CadQuery model.
+
+What it does:
+- modes: "from a sample", "new part", "edit parameters", "check an existing STL";
+- 2D drawing (section, views, detail views) with "✓ measured" and "? assumption" marks;
+- CadQuery model: all dimensions in `params.json`, fit tolerances kept separate from nominal sizes; exports STEP + STL + 3MF;
+- regression dimension checks and printability checks: overhangs, thin walls and walls that don't match the line width, fillets on bottom edges;
+- FDM design rules: orientation by load, ribs, teardrop holes, chamfers against "elephant's foot", heat-set inserts instead of printed threads, snap-fits;
+- a "printer + filament" profile and stepped test pieces for tuning fits;
+- two-color printing with AMS: a Bambu Studio project (.3mf) with filaments already assigned;
+- an independent review by a subagent before handing over the files.
+
+Developed on a Bambu Lab A1 with PETG, but works for any FDM printer.
+
+The skill text is in Russian. Claude follows it fine and answers in your language.
+
+### Installation
+
+**Claude Code:**
+```
+/plugin marketplace add tyhinv/replacement-part-cad
+/plugin install replacement-part-cad@replacement-part-cad
+```
+
+**Claude.ai / Claude app:** download the `skills/replacement-part-cad` folder, zip it and upload it in settings, in the Skills section.
+
+Claude installs the dependencies itself in its sandbox: `cadquery`, `trimesh`, `shapely`, `matplotlib`, `lib3mf` (as needed).
+
+### Credits and license
+
+Sources and their licenses are listed at the end of `SKILL.md`. No text or code was taken from repositories with non-commercial licenses. License: MIT.
 
 ## Откуда идеи
 
