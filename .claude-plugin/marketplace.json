@@ -1,0 +1,11 @@
+{
+  "name": "replacement-part-cad",
+  "owner": { "name": "tyhinv" },
+  "plugins": [
+    {
+      "name": "replacement-part-cad",
+      "source": "./",
+      "description": "Сломанная пластиковая деталь → чертёж → CadQuery → 3D-печать на FDM."
+    }
+  ]
+}
