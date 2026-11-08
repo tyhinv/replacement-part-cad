@@ -1,8 +1,16 @@
 {
   "name": "replacement-part-cad",
   "version": "1.0.0",
-  "description": "Воссоздать сломанную пластиковую деталь для 3D-печати: замеры → 2D-чертёж → CadQuery (STEP/STL/3MF) → проверка печатаемости → FDM.",
-  "author": { "name": "tyhinv" },
+  "description": "Recreate a broken plastic part for FDM 3D printing: measurements → 2D drawing → CadQuery (STEP/STL/3MF) → printability checks → print.",
+  "author": {
+    "name": "tyhinv"
+  },
   "license": "MIT",
-  "keywords": ["3d-printing", "cad", "cadquery", "fdm", "bambu-lab"]
+  "keywords": [
+    "3d-printing",
+    "cad",
+    "cadquery",
+    "fdm",
+    "bambu-lab"
+  ]
 }
